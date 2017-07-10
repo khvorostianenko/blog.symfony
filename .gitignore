@@ -13,4 +13,5 @@ puphpet/config-custom.yaml
 /composer.phar
 .idea/
 .vagrant/
-
+puphpet.zip
+vagrant.log
