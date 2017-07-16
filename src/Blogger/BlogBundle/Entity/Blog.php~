@@ -246,4 +246,38 @@ class Blog
 
         return $this;
     }
+
+    /**
+     * Add comment
+     *
+     * @param \Blogger\BlogBundle\Entity\Comment $comment
+     *
+     * @return Blog
+     */
+    public function addComment(\Blogger\BlogBundle\Entity\Comment $comment)
+    {
+        $this->comments[] = $comment;
+
+        return $this;
+    }
+
+    /**
+     * Remove comment
+     *
+     * @param \Blogger\BlogBundle\Entity\Comment $comment
+     */
+    public function removeComment(\Blogger\BlogBundle\Entity\Comment $comment)
+    {
+        $this->comments->removeElement($comment);
+    }
+
+    /**
+     * Get comments
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getComments()
+    {
+        return $this->comments;
+    }
 }
