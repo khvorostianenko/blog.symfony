@@ -58,9 +58,6 @@ class Comment
         $this->setApproved(true);
     }
     
-    /**
-     * @ORM\preUpdate
-     */
     public function setUpdatedValue()
     {
         $this->setUpdated(new \DateTime());
