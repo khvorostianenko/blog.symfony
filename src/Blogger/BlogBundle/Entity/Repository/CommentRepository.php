@@ -27,4 +27,21 @@ class CommentRepository extends \Doctrine\ORM\EntityRepository
         return $qb->getQuery()
                   ->getResult();
     }
+    
+    public function getLatestComments($limit = 10, $approved = true)
+    {
+        $qb= $this->createQueryBuilder('c')
+                  ->select('c')
+                  ->addOrderBy('c.id', 'DESC');
+    
+        if (false === is_null($approved)) {
+            $qb->andWhere('c.approved = :approved')
+                ->setParameter('approved', $approved);
+            $qb->setMaxResults($limit);
+        }
+        
+        return $qb->getQuery()
+                  ->getResult();
+    }
+    
 }
