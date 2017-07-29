@@ -59,6 +59,11 @@ class Blog
      */
     protected $updated;
     
+    /**
+     * @ORM\Column(type="string")
+     */
+    protected $slug;
+    
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -279,5 +284,10 @@ class Blog
     public function getComments()
     {
         return $this->comments;
+    }
+    
+    public function __toString()
+    {
+        return $this->getTitle();
     }
 }
